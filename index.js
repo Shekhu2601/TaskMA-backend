@@ -9,7 +9,7 @@ const  Taskrouter  = require("./Routes/Task.route");
 const corsConfig ={
     origin : "*",
     Credential: true,
-    methods: ["GET","POST","PUT","PATCH",]
+    methods: ["GET","POST","PUT","PATCH", "DELETE "]
 
 }
 dotenv.config();
