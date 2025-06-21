@@ -6,17 +6,19 @@ const cors= require("cors")
 const AuthRouter =require("./Routes/Authrouter");
 const  Taskrouter  = require("./Routes/Task.route");
 
-app.use(cors({
-  origin: 'https://task-ma-frontend-sekher-namdevs-projects.vercel.app', // or '*', if you want to allow all origins (less secure)
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // include DELETE here
-  credentials: true // if you're using cookies/auth
-}));
+const corsConfig ={
+    origin : "*",
+    Credential: true,
+    methods: ["GET","POST","PUT","PATCH",]
 
+}
+dotenv.config();
 require("./Models/db")
 
 app.use(bodyParser.json())
 
-
+app.options(" ",cors(corsConfig))
+app.use(cors(corsConfig))
 const PORT =process.env.PORT
 app.use('/auth', AuthRouter);
 app.use('/api/task', Taskrouter)
