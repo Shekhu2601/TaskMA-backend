@@ -7,7 +7,7 @@ const AuthRouter =require("./Routes/Authrouter");
 const  Taskrouter  = require("./Routes/Task.route");
 
 app.use(cors({
-  origin: 'http://localhost:5173', // or '*', if you want to allow all origins (less secure)
+  origin: 'https://task-ma-frontend-sekher-namdevs-projects.vercel.app', // or '*', if you want to allow all origins (less secure)
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // include DELETE here
   credentials: true // if you're using cookies/auth
 }));
