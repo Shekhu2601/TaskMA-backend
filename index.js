@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors= require("cors")
 const AuthRouter =require("./Routes/Authrouter");
 const  Taskrouter  = require("./Routes/Task.route");
-
+const axios =require("axios") ;
 const corsConfig ={
     origin : "*",
     Credential: true,
@@ -20,6 +20,27 @@ app.use(bodyParser.json())
 app.options(" ",cors(corsConfig))
 app.use(cors(corsConfig))
 const PORT =process.env.PORT
+
+
+
+
+
+const url = `https://taskma-backend.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
+
 app.use('/auth', AuthRouter);
 app.use('/api/task', Taskrouter)
 app.listen(PORT, ()=>{
