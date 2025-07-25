@@ -25,7 +25,7 @@ const PORT =process.env.PORT
 
 
 
-const url = `https://taskma-backend.onrender.com`;
+const url = `http://taskma-backend.onrender.com/api/task/get-all-task`;
 const interval = 30000;
 
 function reloadWebsite() {
